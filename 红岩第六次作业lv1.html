@@ -3,12 +3,57 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lv1</title>
+    <title>LV1 </title>
+    <style>
+        .yuan {
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            transition: all ease 1s;
+        }
+        
+        .yuan.end {
+            transform: translateX(200px);
+        }
+    </style>
+
+
+
+
+
+
 </head>
 
 <body>
+    <div class="yuan" style="background-color: aqua;"></div>
+    <div class="yuan" style="background-color: orange;"></div>
+    <div class="yuan" style="background-color: gray;"></div>
+    <script type="text/javascript" defer>
+        let yuans = document.querySelectorAll(".yuan")
+
+        function runnning(i) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve()
+                    yuans[i].classList.add("end")
+                }, 1000);
+            })
+        }
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve()
+            }, 1000);
+        }).then(() => {
+            return runnning(0)
+        }).then(() => {
+            return runnning(1)
+        }).then(() => {
+            return runnning(2)
+        })
+    </script>
+
+
+
 
 </body>
 
