@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 2px;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+        
+        button {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        window.onload = function() {
+            let name = document.getElementById("name")
+            let inputs = document.querySelectorAll(".input")
+
+
+            // inputs.forEach(function(item, index, array) { })
+            let input = Array.prototype.map.call(inputs, (obj) => {
+                return obj.value
+            })
+
+
+
+            let add = document.querySelector(".bitadd")
+            let tbody = document.querySelector(".tbody")
+            let newtr = document.createElement('tr')
+
+            // 加入新的内容
+            add.onclick = function() {
+                tbody.append(newtr)
+                newtr.insertAdjacentHTML("afterend", `<td>${input[0]}</td>` + `<td> ${input[1]}</td>` + `<td> <a href='*' value='hhhh'>delate</a> </td>`)
+
+            }
+
+            // 删除新的东西
+            // let newa = newtr.getElementsByTagName("a")[0]
+            // newa.onclick = function() {
+            //     let tr = newa.parentNode.parentNode;
+            //     alert(tr)
+            //     let flag = confirm("确认删除吗?")
+            //     if (flag) {
+            //         tr.remove()
+            //     }
+            // }
+
+
+
+
+            // 删除以前的内容
+            let as = document.getElementsByTagName("a")
+
+            for (let i = 0; i < as.length; i++) {
+                as[i].onclick = function del() {
+                    let tr = as[i].parentNode.parentNode;
+                    let flag = confirm("确认删除吗?")
+                    if (flag) {
+                        tr.remove()
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <table border="2px" cellpadding="0" align="center">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>留言板</th>
+                    <th>内容</th>
+                </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+                <tr class="formtr">
+                    <td>李镇希</td>
+                    <td>加油</td>
+                    <td>
+                        <a href="*">delate</a>
+                    </td>
+                </tr>
+                <tr class="formtr">
+                    <td>ra</td>
+                    <td>加油</td>
+                    <td>
+                        <a href="*">delate</a>
+                    </td>
+                </tr>
+                <tr class="formtr">
+                    <td>秦爷</td>
+                    <td>加油</td>
+                    <td>
+                        <a href="*">delate</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <div id="formDiv">
+
+            <h4>添加新员工</h4>
+
+            <table>
+                <tr>
+                    <td class="word">name: </td>
+                    <td class="inp">
+                        <input class="input" type="text" id="Name" name="name" value="111" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="word">thing: </td>
+                    <td class="inp">
+                        <input class="input" type="text" id="thing" name="thing" value="222" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="word">xxx: </td>
+                    <td class="inp">
+                        <input class="input" type="text" id="xxx" name="xxx" value="333" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <button class="bitadd" value="点击我添加一个新的留言 ">  点击我添加一个新的留言  </button>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>

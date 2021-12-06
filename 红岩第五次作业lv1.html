@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lv2</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            // function myonclick(bit1, fun) {
+            //     let bit = divlist.document.querySelector('.first>span');
+            // }
+            function myClick(btn, sellect) {}
+            let bit1 = document.querySelector("#divlist").children[5];
+            bit1.onclick = function() {
+                let allbit = document.getElementsByName("items")
+                    // for (let allbit1 of allbit) {
+                    //     alert(allbit1[i].checked)
+                    // }
+                for (let i = 0; i < allbit.length; i++) {
+                    allbit[i].checked = true
+                }
+                alert("已经全选")
+            }
+            let bit2 = document.querySelector("#divlist").children[6];
+            bit2.onclick = function() {
+                let notbit = document.getElementsByName("items");
+                for (let i = 0; i < notbit.length; i++) {
+                    notbit[i].checked = false
+                }
+                alert("全不选")
+            }
+            let bit3 = document.querySelector("#divlist").children[7];
+            bit3.onclick = function() {
+                let fanbit = document.getElementsByName("items");
+                alert(fanbit.innerHTML)
+                for (let i = 0; i < fanbit.length; i++) {
+                    if (fanbit[i].checked) {
+                        fanbit[i].checked = false;
+                    } else {
+                        fanbit[i].checked = true;
+                    }
+                }
+                alert("反选")
+            }
+            let bit4 = document.querySelector("#divlist").children[8];
+            bit4.onclick = function() {
+                alert("已经")
+            }
+        }
+    </script>
+
+
+
+</head>
+
+<body>
+
+    <div>
+        <b>请选择您的爱好</b>
+        <br />
+    </div>
+
+    <div id="divlist">
+        <input type="checkbox" name="items" value="内卷">内卷
+        <input type="checkbox" name="items" value="疯狂内卷">疯狂内卷
+        <input type="checkbox" name="items" value="拼命内卷">拼命内卷
+        <input type="checkbox" name="items" value="使劲内卷">使劲内卷
+        <br/>
+        <input type="button" value="全选">
+        <input type="button" value="全不选">
+        <input type="button" value="反选">
+        <input type="button" value="提交">
+    </div>
+
+
+
+</body>
+
+</html>
