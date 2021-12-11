@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lv2</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        async function post() {
+
+            const require = await fetch("https://anonym.ink:8000/homework/auth/login", {
+
+                method: "POST",
+                headers: {
+                    'Content-Type': `application/json`
+                },
+                body: JSON.stringify({
+                    username: `admin`,
+                    password: `root`
+                })
+            })
+            const res = await require.json()
+
+            console.log(res)
+        }
+
+        post()
+    </script>
+</body>
+
+</html>

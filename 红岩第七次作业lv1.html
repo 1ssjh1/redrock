@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lv1</title>
+
+
+
+
+
+
+
+</head>
+
+<body>
+    <input type="text" class="text" value="123">
+
+
+    <input class="but1" type="button" value="发送">
+
+
+    <script text="text/javascript">
+        const text = document.querySelectorAll(".text")[0].value
+        const but1 = document.querySelector(".but1")
+        const formdata = new FormData()
+        formdata.append(`message`, text)
+
+        but1.onclick = function() {
+
+            async function send() {
+                const post = await fetch(`https://anonym.ink:8000/homework/fufubot_test/`, {
+                    method: "post",
+                    body: formdata
+                })
+                const text = await post.text()
+                console.log(text);
+            }
+
+            send()
+        }
+    </script>
+</body>
+
+</html>

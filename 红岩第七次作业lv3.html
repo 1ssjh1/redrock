@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lv3</title>
+    <style>
+        .all {
+            text-align: center;
+            border-radius: 7%;
+            background-color: rgba(78, 78, 78, 0.9);
+            margin: 0 auto;
+            border: 1px solid #000;
+            width: 600px;
+            height: 650px
+        }
+        
+        .sendbit {
+            background-color: rgb(255, 229, 28);
+            border: 1px solid black;
+            border-radius: 7%;
+        }
+        
+        .otherbit {
+            border: 2px rgb(255, 220, 225) solid;
+            background-color: rgb(255, 220, 225);
+        }
+    </style>
+</head>
+
+
+
+
+
+<body>
+    <div class="all">
+        <br>欢迎使用<strong>ZOO</strong>聊天室<br/><br/>
+        <textarea id="content" cols="60" rows="30"></textarea><br>
+        <input type="text" id="sendMsg">
+        <button class="sendbit" type="button" onclick="sendMsg()">发送(s)</button>
+        <br/><br/> 用户：
+        <input type="text" id="user">
+        <button class="otherbit" onclick="joinRoom()">加入群聊</button>
+        <button class="otherbit" onclick="exitRoom()">退出群聊</button>
+    </div>
+    <script src="红岩第七次作业lv3.js"></script>
+
+
+
+
+</body>
+
+</html>
