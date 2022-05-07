@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <input type="text">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <script type="text/javascript">
+        let input = document.querySelector("input")
+
+        input.addEventListener("keydown", function() {
+                if (t) {
+                    clearTimeout(t)
+
+                }
+                t = setTimeout(() => {
+                    console.log(this.value);
+                }, 500);
+
+            })
+            // 执行任务
+
+        function out(a, b, c) {
+            console.log(a, b, c);
+            console.log(this.value);
+        }
+        input.addEventListener("keydown", debounce(500, out)(1, 2, 3))
+
+        //防抖函数
+        function debounce(time, fn) {
+            let t = null
+            return function() {
+                let rest = [...arguments]
+                return function() {
+                    if (t) {
+                        clearTimeout(t)
+                    }
+                    t = setTimeout(() => {
+                        //任务回调函数
+
+                        fn.apply(this, rest)
+                    }, time);
+                }
+
+            }
+
+        }
+
+        window.addEventListener("scroll", throttle(1000, say)(1, 2, 3))
+
+        function say(a, b, c) {
+            console.log(a, b, c);
+            console.log(this.scrollY);
+        }
+        //节流函数
+        function throttle(time, fn) {
+            let key = true
+            return function() {
+                let rest = [...arguments]
+                return function() {
+                    if (key) {
+                        fn.apply(this, rest)
+                        key = false
+                        setTimeout(() => {
+                            key = true
+                        }, 1000);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
